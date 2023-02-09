@@ -29,3 +29,31 @@ const data2 = [
 ];
 const results2 = takeUntil(data2, (x) => x === ",");
 console.log(results2);
+
+const eqArrays = function (arrOne, arrTwo) {
+  let convertedArrOne = arrOne.toString();
+  let convertedArrTwo = arrTwo.toString();
+
+  return convertedArrOne === convertedArrTwo;
+};
+
+const assertArrEq = function (eqCheck) {
+  if (eqCheck) {
+    console.log(`✅✅✅Assertion Passed`);
+  } else if (!eqCheck) {
+    console.log(`🛑🛑🛑Assertion Failed`);
+  }
+};
+
+assertArrEq(
+  eqArrays(
+    takeUntil(data1, (x) => x < 0),
+    [1, 2, 5, 7, 2]
+  )
+);
+assertArrEq(
+  eqArrays(
+    takeUntil(data2, (x) => x === ","),
+    ["I've", "been", "to", "Hollywood"]
+  )
+);
