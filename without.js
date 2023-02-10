@@ -1,32 +1,36 @@
-const eqArrays = function (arrOne, arrTwo) {
-  let convertedArrOne = arrOne.toString();
-  let convertedArrTwo = arrTwo.toString();
+const eqArrays = function(arrOne, arrTwo) {
 
-  return convertedArrOne === convertedArrTwo;
-};
-
-const assertArrEq = function (eqCheck) {
-  if (eqCheck) {
-    console.log(`✅✅✅Assertion Passed`);
-  } else if (!eqCheck) {
-    console.log(`🛑🛑🛑Assertion Failed`);
+  if (arrOne.length !== arrTwo.length) {
+    return false;
   }
+
+  for (let i = 0; i < arrOne.length; i++) {
+    if (arrOne[i] !== arrTwo[i]) {
+      return false;
+    }
+  }
+  return true;
 };
 
-const without = function (source, itemsToRemove) {
-  // let result = source.filter((e) => !itemsToRemove.includes(e));
+const assertArrEq = function(eqCheck) {
+  if (!eqCheck) {
+    console.log(`🛑🛑🛑Assertion Failed`);
+    return;
+  }
+  console.log(`✅✅✅Assertion Passed`);
+};
+
+const without = function(source, itemsToRemove) {
   let result = [];
-  for (let i = 0; i < source.length; i++) {
-    if (!itemsToRemove.includes(source[i])) {
-      result.push(source[i]);
+  for (const item of source) {
+    if (!itemsToRemove.includes(item)) {
+      result.push(item);
     }
   }
   return result;
 };
 
-console.log(without([1, 2, 3], [1]));
-console.log(without(["1", "2", "3"], [1, 2, "3"]));
 
 const words = ["hello", "world", "lighthouse"];
 without(words, ["lighthouse"]);
-assertArrEq(words, ["hello", "world", "lighthouse"]);
+assertArrEq(eqArrays(words, ["hello", "world", "lighthouse"]),["hello", "world"]);
