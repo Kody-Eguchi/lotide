@@ -1,4 +1,4 @@
-const assertEqual = function (actual, expected) {
+const assertEqual = function(actual, expected) {
   if (actual === expected) {
     console.log(`✅✅✅Assertion Passed: ${actual} === ${expected}`);
   } else if (actual !== expected) {
@@ -6,7 +6,7 @@ const assertEqual = function (actual, expected) {
   }
 };
 
-const findKeyByValue = function (obj, title) {
+const findKeyByValue = function(obj, title) {
   for (const genre in obj) {
     if (obj[genre] === title) {
       return genre;
@@ -15,7 +15,7 @@ const findKeyByValue = function (obj, title) {
 };
 
 const bestTVShowsByGenre = {
-  sci_fi: "The Expanse",
+  "sci_fi": "The Expanse",
   comedy: "Brooklyn Nine-Nine",
   drama: "The Wire",
 };

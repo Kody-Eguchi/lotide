@@ -1,11 +1,10 @@
-const takeUntil = function (arr, callback) {
+const takeUntil = function(arr, callback) {
   const result = [];
   for (const item of arr) {
     if (callback(item)) {
       return result;
-    } else {
-      result.push(item);
     }
+    result.push(item);
   }
   return result;
 };
@@ -30,14 +29,14 @@ const data2 = [
 const results2 = takeUntil(data2, (x) => x === ",");
 console.log(results2);
 
-const eqArrays = function (arrOne, arrTwo) {
+const eqArrays = function(arrOne, arrTwo) {
   let convertedArrOne = arrOne.toString();
   let convertedArrTwo = arrTwo.toString();
 
   return convertedArrOne === convertedArrTwo;
 };
 
-const assertArrEq = function (eqCheck) {
+const assertArrEq = function(eqCheck) {
   if (eqCheck) {
     console.log(`✅✅✅Assertion Passed`);
   } else if (!eqCheck) {
